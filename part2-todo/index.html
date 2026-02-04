@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo App (HW4)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <h1>Todo App</h1>
+
+      <!-- Logged OUT view -->
+      <section id="authView">
+        <div class="two-col">
+          <div>
+            <h2>Register</h2>
+            <form id="registerForm">
+              <label>
+                Username
+                <input id="regUsername" required autocomplete="username" />
+              </label>
+              <label>
+                Password
+                <input id="regPassword" type="password" required autocomplete="new-password" />
+              </label>
+              <button type="submit">Create Account</button>
+            </form>
+          </div>
+
+          <div>
+            <h2>Login</h2>
+            <form id="loginForm">
+              <label>
+                Username
+                <input id="loginUsername" required autocomplete="username" />
+              </label>
+              <label>
+                Password
+                <input id="loginPassword" type="password" required autocomplete="current-password" />
+              </label>
+              <button type="submit">Log In</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Logged IN view -->
+      <section id="todoView" class="hidden">
+        <div class="toolbar">
+          <div>
+            Signed in as: <strong id="whoami">—</strong>
+          </div>
+          <button id="logoutBtn" type="button">Logout</button>
+        </div>
+
+        <h2>Your Todos</h2>
+
+        <form id="todoForm" class="todo-form">
+          <label>
+            Title
+            <input id="todoTitle" required />
+          </label>
+          <label>
+            Description (optional)
+            <input id="todoDesc" />
+          </label>
+          <button type="submit">Add Todo</button>
+        </form>
+
+        <ul id="todoList" class="todo-list"></ul>
+      </section>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
