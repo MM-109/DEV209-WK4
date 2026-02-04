@@ -1,238 +1,116 @@
-* { box-sizing: border-box; }
-
-:root{
-  --bg-green: #0f2c1f;
-  --overlay: rgba(15, 44, 31, 0.78);
-
-  --card: rgba(58, 42, 28, 0.96);
-  --card-border: rgba(255, 255, 255, 0.12);
-
-  --text: #f4efe9;
-  --muted: rgba(244, 239, 233, 0.75);
-
-  --input-bg: rgba(255, 255, 255, 0.95);
-  --input-text: #2b1e14;
-
-  --accent: #2f7a4a;
-  --accent-hover: #27663f;
-
-  --soft: rgba(255, 255, 255, 0.08);
-  --soft-hover: rgba(255, 255, 255, 0.14);
-
-  --danger: #a14a3a;
-  --danger-hover: #8a3e31;
-
-  --shadow: 0 30px 70px rgba(0,0,0,0.45);
-
-  --r-lg: 22px;
-  --r-md: 14px;
+:root {
+  --card-back: #2196f3;
+  --card-face: #4caf50;
+  --card-text: #0b3a66;
 }
 
-html, body { height: 100%; }
+* {
+  box-sizing: border-box;
+}
 
-body{
+body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  color: var(--text);
-
-  background-color: var(--bg-green);
-  background-image:
-    linear-gradient(var(--overlay), var(--overlay)),
-    url("image/fern-left.png"),
-    url("image/fern-right.png");
-  background-repeat: repeat, repeat, repeat;
-  background-size: auto, 140px 140px, 140px 140px;
-  background-position: center, center, center;
+  font-family: system-ui, sans-serif;
+  background: #f2f2f2;
 }
 
-.hidden{ display:none !important; }
-
-.page{
+.page {
   min-height: 100vh;
-  padding: 56px 18px;
   display: grid;
   place-items: center;
 }
 
-.card{
-  width: min(980px, 100%);
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
-  padding: 36px;
+.card {
+  background: #fff;
+  padding: 26px;
+  border-radius: 14px;
+  width: 420px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.15);
 }
 
-h1,h2,p,label,span,div{
-  margin: 0;
-  font-weight: 500;
+h1 {
+  margin-top: 0;
+  font-size: 36px;
 }
 
-h1{
-  font-size: 2.05rem;
-  letter-spacing: -0.02em;
-  margin-bottom: 18px;
-}
-
-h2{
-  font-size: 1.35rem;
-  margin: 18px 0 10px;
-}
-
-strong{ font-weight: 700; }
-
-label{
-  display:block;
-  font-size: 0.92rem;
-  color: var(--muted);
-  margin: 10px 0 6px;
-}
-
-input{
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.25);
-  background: var(--input-bg);
-  font-size: 0.95rem;
-  color: var(--input-text);
-  outline: none;
-}
-
-input:focus{
-  border-color: rgba(47, 122, 74, 0.7);
-  box-shadow: 0 0 0 3px rgba(47, 122, 74, 0.25);
-}
-
-button{
-  border: 0;
-  border-radius: 12px;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 0.92rem;
-  font-weight: 600;
-  transition: background 0.15s ease, transform 0.05s ease;
-}
-
-button:active{ transform: translateY(1px); }
-
-#registerForm button,
-#loginForm button,
-#todoForm button,
-#logoutBtn{
-  background: var(--accent);
-  color: #fff;
-}
-
-#registerForm button:hover,
-#loginForm button:hover,
-#todoForm button:hover,
-#logoutBtn:hover{
-  background: var(--accent-hover);
-}
-
-.two-col{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 26px;
-}
-
-@media (max-width: 820px){
-  .two-col{ grid-template-columns: 1fr; }
-}
-
-#registerForm,
-#loginForm,
-.todo-form{
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: var(--r-md);
-  padding: 18px;
-}
-
-.toolbar{
+.controls {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.todo-form{
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr auto;
-  gap: 12px;
-  align-items: end;
-}
-
-@media (max-width: 820px){
-  .todo-form{ grid-template-columns: 1fr; }
-}
-
-.todo-list{
-  list-style: none;
-  padding: 0;
-  margin: 18px 0 0;
-  display: grid;
-  gap: 12px;
-}
-
-.todo-item{
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.16);
-  border-radius: 16px;
-  padding: 16px;
-}
-
-.todo-title{
-  font-size: 1.02rem;
-  font-weight: 650;
-}
-
-.todo-desc{
-  margin-top: 6px;
-  font-size: 0.92rem;
-  color: var(--muted);
-}
-
-.badge{
-  font-size: 0.78rem;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25);
-  font-weight: 650;
-}
-
-.actions{
-  display:flex;
   gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.controls select {
+  flex: 1;
+  min-width: 0;           /* prevents overflow pushing the button */
+}
+
+.controls button {
+  flex: 0 0 auto;
+  white-space: nowrap;    /* keeps "New Game" on one line */
+  min-width: 110px;       /* makes it match the row nicely */
+}
+
+
+select, button {
+  height: 42px;
+  font-size: 16px;
+}
+
+select {
+  flex: 1;
+}
+
+button {
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  grid-template-columns: repeat(var(--cols), 60px);
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  background: var(--card-back);
+  border-radius: 6px;
+  font-size: 26px;
+  font-weight: bold;
+  color: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.tile.revealed,
+.tile.matched {
+  background: var(--card-face);
+  color: var(--card-text);
+}
+
+.message {
+  text-align: center;
   margin-top: 12px;
 }
 
-.btn-secondary{
-  background: var(--soft);
-  color: var(--text);
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
-
-.btn-secondary:hover{
-  background: var(--soft-hover);
-}
-
-.btn-danger{
-  background: rgba(161, 74, 58, 0.15);
-  color: #ffd6cf;
-}
-
-.btn-danger:hover{
-  background: rgba(161, 74, 58, 0.25);
-}
-
-.status{
-  margin-top: 14px;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.status.ok{ color: #8fd6a8; }
-.status.err{ color: #f1a29a; }
