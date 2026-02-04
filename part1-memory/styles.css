@@ -1,0 +1,116 @@
+:root {
+  --card-back: #2196f3;
+  --card-face: #4caf50;
+  --card-text: #0b3a66;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f2f2f2;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background: #fff;
+  padding: 26px;
+  border-radius: 14px;
+  width: 420px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.15);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 36px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.controls select {
+  flex: 1;
+  min-width: 0;           /* prevents overflow pushing the button */
+}
+
+.controls button {
+  flex: 0 0 auto;
+  white-space: nowrap;    /* keeps "New Game" on one line */
+  min-width: 110px;       /* makes it match the row nicely */
+}
+
+
+select, button {
+  height: 42px;
+  font-size: 16px;
+}
+
+select {
+  flex: 1;
+}
+
+button {
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  grid-template-columns: repeat(var(--cols), 60px);
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  background: var(--card-back);
+  border-radius: 6px;
+  font-size: 26px;
+  font-weight: bold;
+  color: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.tile.revealed,
+.tile.matched {
+  background: var(--card-face);
+  color: var(--card-text);
+}
+
+.message {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
